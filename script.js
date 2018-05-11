@@ -46,20 +46,20 @@ function submit(e) {
 
     if ( isNaN(userInput) || userInput < minNumber || userInput > maxNumber ) {
         setMessage(`Please enter a number berween ${minNumber} and ${maxNumber}`, 'red');
-    }
-
-    // check if won
-    if ( userInput === correctAnswer ) {
-        gameOver(true, `${correctAnswer} is correct number!`);
     } else {
-        guessesLeft -= 1;
-
-        if ( guessesLeft === 0 ) {
-            gameOver(false, `Game over, you lost. ${correctAnswer} was correct number!`);
+        // check if won
+        if ( userInput === correctAnswer ) {
+            gameOver(true, `${correctAnswer} is correct number!`);
         } else {
-            setMessage(`${userInput} is not correct. Guesses left ${guessesLeft}`, 'black');
-        }
+            guessesLeft -= 1;
 
+            if ( guessesLeft === 0 ) {
+                gameOver(false, `Game over, you lost. ${correctAnswer} was correct number!`);
+            } else {
+                setMessage(`${userInput} is not correct. Guesses left ${guessesLeft}`, 'black');
+            }
+
+        }
     }
 }
 
